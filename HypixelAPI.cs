@@ -1,0 +1,7 @@
+﻿namespace HypixelCSHARP
+{
+     class HypixelAPI
+    {
+            
+    }
+}
