@@ -77,6 +77,137 @@ namespace HypixelCSHARP
              }
              return reply;
          }
-         
+         public static string getPlayerByName(string name)
+         {
+             var reply = "";
+
+             var URL = API_URL + "player?key=" + API_KEY + "&name=" + name;
+
+             WebResponse webResponse = null;
+             StreamReader streamReader = null;
+
+             try
+             {
+                 HttpWebRequest req = (HttpWebRequest) WebRequest.Create(URL);
+                 req.Method = "GET";
+                 
+                 webResponse = req.GetResponse();
+                 streamReader = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8);
+                 reply = streamReader.ReadToEnd();
+             }
+             catch (WebException e)
+             {
+                 Console.Write(e);
+             }
+             if (streamReader != null)
+             {
+                 streamReader.Close();
+                 Console.Write("Streamer closed!");
+             } else if (webResponse != null)
+             {
+                 webResponse.Close();
+                 Console.Write("Response closed!");
+             }
+             return reply;
+         }
+         public static string getFriendsByUuid(string uuid)
+         {
+             var reply = "";
+
+             var URL = API_URL + "friends?key=" + API_KEY + "&uuid=" + uuid;
+
+             WebResponse webResponse = null;
+             StreamReader streamReader = null;
+
+             try
+             {
+                 HttpWebRequest req = (HttpWebRequest) WebRequest.Create(URL);
+                 req.Method = "GET";
+                 
+                 webResponse = req.GetResponse();
+                 streamReader = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8);
+                 reply = streamReader.ReadToEnd();
+             }
+             catch (WebException e)
+             {
+                 Console.Write(e);
+             }
+             if (streamReader != null)
+             {
+                 streamReader.Close();
+                 Console.Write("Streamer closed!");
+             } else if (webResponse != null)
+             {
+                 webResponse.Close();
+                 Console.Write("Response closed!");
+             }
+             return reply;
+         }
+         public static string getFriendsByPlayer(string player)
+         {
+             var reply = "";
+
+             var URL = API_URL + "friends?key=" + API_KEY + "&uuid=" + player;
+
+             WebResponse webResponse = null;
+             StreamReader streamReader = null;
+
+             try
+             {
+                 HttpWebRequest req = (HttpWebRequest) WebRequest.Create(URL);
+                 req.Method = "GET";
+                 
+                 webResponse = req.GetResponse();
+                 streamReader = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8);
+                 reply = streamReader.ReadToEnd();
+             }
+             catch (WebException e)
+             {
+                 Console.Write(e);
+             }
+             if (streamReader != null)
+             {
+                 streamReader.Close();
+                 Console.Write("Streamer closed!");
+             } else if (webResponse != null)
+             {
+                 webResponse.Close();
+                 Console.Write("Response closed!");
+             }
+             return reply;
+         }
+         public static string getFriendsByName(string name)
+         {
+             var reply = "";
+
+             var URL = API_URL + "friends?key=" + API_KEY + "&uuid=" + name;
+
+             WebResponse webResponse = null;
+             StreamReader streamReader = null;
+
+             try
+             {
+                 HttpWebRequest req = (HttpWebRequest) WebRequest.Create(URL);
+                 req.Method = "GET";
+                 
+                 webResponse = req.GetResponse();
+                 streamReader = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8);
+                 reply = streamReader.ReadToEnd();
+             }
+             catch (WebException e)
+             {
+                 Console.Write(e);
+             }
+             if (streamReader != null)
+             {
+                 streamReader.Close();
+                 Console.Write("Streamer closed!");
+             } else if (webResponse != null)
+             {
+                 webResponse.Close();
+                 Console.Write("Response closed!");
+             }
+             return reply;
+         }
      }
 }
