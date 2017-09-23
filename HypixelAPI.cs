@@ -303,5 +303,98 @@ namespace HypixelCSHARP
              }
              return reply;
          }
+         public static string findGuildByName(String name)
+         {
+             var reply = "";
+             string URL = API_URL + "findGuild?key=" + API_KEY + "&byName=" + name;
+             WebResponse webResponse = null;
+             StreamReader streamReader = null;
+
+             try
+             {
+                 HttpWebRequest req = (HttpWebRequest) WebRequest.Create(URL);
+                 req.Method = "GET";
+                 
+                 webResponse = req.GetResponse();
+                 streamReader = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8);
+                 reply = streamReader.ReadToEnd();
+             }
+             catch (WebException e)
+             {
+                 Console.Write(e);
+             }
+             if (streamReader != null)
+             {
+                 streamReader.Close();
+                 Console.Write("Streamer closed!");
+             } else if (webResponse != null)
+             {
+                 webResponse.Close();
+                 Console.Write("Response closed!");
+             }
+             return reply;
+         }
+         public static string getBoostersByName(string name)
+         {
+             var reply = "";
+             string URL = API_URL + "boosters?key=" + API_KEY + "&id=" + name;
+             WebResponse webResponse = null;
+             StreamReader streamReader = null;
+
+             try
+             {
+                 HttpWebRequest req = (HttpWebRequest) WebRequest.Create(URL);
+                 req.Method = "GET";
+                 
+                 webResponse = req.GetResponse();
+                 streamReader = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8);
+                 reply = streamReader.ReadToEnd();
+             }
+             catch (WebException e)
+             {
+                 Console.Write(e);
+             }
+             if (streamReader != null)
+             {
+                 streamReader.Close();
+                 Console.Write("Streamer closed!");
+             } else if (webResponse != null)
+             {
+                 webResponse.Close();
+                 Console.Write("Response closed!");
+             }
+             return reply;
+         }
+         public static string getBoostersByUuid(String uuid)
+         {
+             var reply = "";
+             string URL = API_URL + "boosters?key=" + API_KEY + "&id=" + uuid;
+             WebResponse webResponse = null;
+             StreamReader streamReader = null;
+
+             try
+             {
+                 HttpWebRequest req = (HttpWebRequest) WebRequest.Create(URL);
+                 req.Method = "GET";
+                 
+                 webResponse = req.GetResponse();
+                 streamReader = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8);
+                 reply = streamReader.ReadToEnd();
+             }
+             catch (WebException e)
+             {
+                 Console.Write(e);
+             }
+             if (streamReader != null)
+             {
+                 streamReader.Close();
+                 Console.Write("Streamer closed!");
+             } else if (webResponse != null)
+             {
+                 webResponse.Close();
+                 Console.Write("Response closed!");
+             }
+             return reply;
+         }
      }
 }
