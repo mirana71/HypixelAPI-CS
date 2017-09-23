@@ -24,6 +24,7 @@ namespace HypixelCSHARP
              {
                  HttpWebRequest req = (HttpWebRequest) WebRequest.Create(URL);
                  req.Method = "GET";
+                 
                  webResponse = req.GetResponse();
                  streamReader = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8);
                  reply = streamReader.ReadToEnd();
@@ -43,5 +44,39 @@ namespace HypixelCSHARP
              }
              return reply;
          }
+         public static string getPlayerByPlayer(string player)
+         {
+             var reply = "";
+
+             var URL = API_URL + "player?key=" + API_KEY + "&player=" + player;
+
+             WebResponse webResponse = null;
+             StreamReader streamReader = null;
+
+             try
+             {
+                 HttpWebRequest req = (HttpWebRequest) WebRequest.Create(URL);
+                 req.Method = "GET";
+                 
+                 webResponse = req.GetResponse();
+                 streamReader = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8);
+                 reply = streamReader.ReadToEnd();
+             }
+             catch (WebException e)
+             {
+                 Console.Write(e);
+             }
+             if (streamReader != null)
+             {
+                 streamReader.Close();
+                 Console.Write("Streamer closed!");
+             } else if (webResponse != null)
+             {
+                 webResponse.Close();
+                 Console.Write("Response closed!");
+             }
+             return reply;
+         }
+         
      }
 }
