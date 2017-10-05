@@ -16,3 +16,5 @@ At the moment this is very basic, later on there will be more updates made to it
 
 # Wish list
 A KFC Bargain bucket would be nice ;)
+
+(C) Hypixel 2017. 
